@@ -1,0 +1,5 @@
+{
+  "ext": "*.*",
+  "exec": "npm run build && node dist/app.js",
+  "watch": "src"
+}
