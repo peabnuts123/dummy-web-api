@@ -2,8 +2,13 @@ import { Response, Request } from "express";
 import indexHTML from '~/index.html';
 
 const express = require('express');
+var cors = require('cors')
 const app = express();
 const port = 3000;
+
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || `http://localhost:8080`,
+}));
 
 app.get('/', (_req: Request, res: Response) => {
   res.contentType("html");
