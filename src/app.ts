@@ -1,10 +1,9 @@
-import { Response, Request } from "express";
+import express, { Response, Request } from "express";
 import indexHTML from '~/index.html';
+import cors from 'cors';
 
-const express = require('express');
-var cors = require('cors')
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors({
   origin: process.env.CORS_ORIGIN || `http://localhost:8080`,
@@ -27,4 +26,4 @@ app.get('/test', (_req: Request, res: Response) => {
   })
 });
 
-app.listen(port, () => console.log(`Example app serving on http://localhost:${port}`));
+app.listen(port, () => console.log(`Example app serving on port ${port}`));
